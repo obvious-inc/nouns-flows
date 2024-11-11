@@ -1,9 +1,6 @@
 import { EmbeddingType, JobBody } from "./job"
 
 export async function postToEmbeddingsQueueRequest(payload: JobBody) {
-  // ignore embeddings
-  return null
-
   if (!process.env.EMBEDDINGS_QUEUE_URL) {
     throw new Error("EMBEDDINGS_QUEUE_URL is not defined")
   }
@@ -32,9 +29,6 @@ export async function postToEmbeddingsQueueRequest(payload: JobBody) {
 }
 
 export async function deleteEmbeddingRequest(contentHash: string, type: EmbeddingType) {
-  // ignore embeddings
-  return null
-
   if (!process.env.EMBEDDINGS_QUEUE_URL) {
     throw new Error("EMBEDDINGS_QUEUE_URL is not defined")
   }
