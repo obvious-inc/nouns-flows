@@ -64,13 +64,16 @@ export default createSchema((p) => ({
     {
       id: p.string(),
       contract: p.string(),
-      recipientId: p.string(),
+      recipientId: p.string().references("Grant.id"),
+      recipient: p.one("recipientId"),
       tokenId: p.string(),
       bps: p.int(),
       voter: p.string(),
       blockNumber: p.string(),
       isStale: p.boolean(),
       votesCount: p.string(),
+      transactionHash: p.string(),
+      blockTimestamp: p.int(),
     },
     {
       voterIndex: p.index("voter"),
